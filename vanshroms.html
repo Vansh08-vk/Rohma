@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Rohma ❤️</title>
+    <style>
+        body { background-color: #ffe4e1; text-align: center; font-family: sans-serif; height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        .box { background: white; padding: 40px; border-radius: 25px; width: 350px; min-height: 200px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1; }
+        
+        #celebration { display: none; }
+        img { width: 250px; border-radius: 15px; margin-bottom: 20px; }
+        h1 { color: #d63384; font-size: 24px; }
+        
+        .btn-group { margin-top: 30px; display: flex; justify-content: center; gap: 40px; }
+        button { padding: 12px 25px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; font-size: 16px; transition: 0.1s; }
+        
+        #yesBtn { background: #ff4d6d; color: white; }
+        
+        /* The No button position: fixed makes it move relative to the whole screen */
+        #noBtn { background: #adb5bd; color: white; position: fixed; z-index: 999; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div id="questionSection">
+            <h1>Rohma, will you be my Valentine?</h1>
+            <div class="btn-group">
+                <button id="yesBtn" onclick="showGif()">Yes</button>
+                <button id="noBtn" onmouseover="moveNo()" style="margin-left: 140px;">No</button>
+            </div>
+        </div>
+
+        <div id="celebration">
+            <img src="bb-baby.gif"> 
+            <h1>Yay! I knew you'd say yes! My panda ❤️</h1>
+        </div>
+    </div>
+
+    <script>
+        function moveNo() {
+            var btn = document.getElementById('noBtn');
+            
+            // Calculate random coordinates that are definitely inside the window
+            var x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            var y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            // Apply new coordinates
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            btn.style.margin = '0'; // Removes initial margin once it starts moving
+        }
+
+        function showGif() {
+            document.getElementById('questionSection').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+            document.getElementById('noBtn').style.display = 'none'; // Hide No button after Yes
+            document.body.style.backgroundColor = '#ffccd5';
+        }
+    </script>
+</body>
+</html>
